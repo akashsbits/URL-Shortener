@@ -5,9 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>URL Shortener</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./stylesheets/style.css" />
   </head>
   <body>
-    <h1>URL Shortener</h1>
+    <div id="container">
+      <div><h1>URL Shortener</h1></div>
+      <div id="search-bar">
+        <form action="/url" method="post">
+          <input type="url" name="url" placeholder="Enter a URL" required />
+          <input type="submit" value="GO" />
+        </form>
+      </div>
+      <div>
+        <table id="table-wrapper">
+          <thead>
+            <tr>
+              <th>URL</th>
+              <th>Short URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
+              </td>
+              <td>qqqq</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>

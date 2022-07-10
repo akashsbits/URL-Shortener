@@ -1,14 +1,29 @@
 const express = require("express");
+const urlController = require("./controllers/url");
+const connectDB = require("./db");
 
 const app = express();
 
+const PORT = 3008;
+const MONGO_URI = "mongodb://localhost/urls";
+
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static("./public"));
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-const PORT = 3008;
+app.post("/url", urlController);
 
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+const start = async () => {
+  try {
+    await connectDB(MONGO_URI);
+    app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+start();
