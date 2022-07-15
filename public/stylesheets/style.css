@@ -64,3 +64,7 @@ th:nth-child(2) {
 td {
   background-color: hsl(0, 0%, 100%);
 }
+
+#error {
+  color: hsl(0, 100%, 50%);
+}

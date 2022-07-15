@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>URL Shortener</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="./stylesheets/style.css" />
   </head>
   <body>
     <div id="container">
       <div><h1>URL Shortener</h1></div>
+
+      <% if (typeof error !== 'undefined') { %>
+      <div id="error"><%= error %></div>
+      <% } %>
       <div id="search-bar">
         <form action="/url" method="post">
           <input type="url" name="url" placeholder="Enter a URL" required />
           <input type="submit" value="GO" />
         </form>
       </div>
+      <% if (typeof url !== 'undefined' && typeof shortUrl !== 'undefined') { %>
       <div>
         <table id="table-wrapper">
           <thead>
@@ -26,14 +32,13 @@
           </thead>
           <tbody>
             <tr>
-              <td>
-                qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-              </td>
-              <td>qqqq</td>
+              <td><%= url %></td>
+              <td><%= shortUrl %></td>
             </tr>
           </tbody>
         </table>
       </div>
+      <% } %>
     </div>
   </body>
 </html>
