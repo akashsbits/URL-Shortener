@@ -1,6 +1,6 @@
 const URL = require("../models/url");
 
-module.exports = async (req, res) => {
+module.exports = async (req, res, next) => {
   try {
     const url = req.body.url;
 
@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
 
     res.render("index", { url: data.url, shortUrl: data.shortUrl });
   } catch (err) {
-    console.log(err);
-    res.render("index", { error: err.message });
+    console.error(err);
+    next(err);
   }
 };
